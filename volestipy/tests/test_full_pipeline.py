@@ -6,7 +6,7 @@ from volestipy import *
 import sys
 
 # Set a variable with the input / metabolic network file
-input_file = 'bigg_files/iZ_1308.json'
+input_file = 'bigg_files/iAF692.json'
 
 # Read json
 read_ecoli_core = read_json_file(input_file)
@@ -28,13 +28,6 @@ Aeq_proc = proc[2]
 beq_proc = proc[3]
 
 
-
-
-sys.exit(0)
-
-
-
-
 #A_proc = np.load('A_preprocessed.npy')
 #b_proc = np.load('b_preprocessed.npy')
 #Aeq_proc = np.load('Aeq_preprocessed.npy')
@@ -48,11 +41,11 @@ print("object ok")
 
 
 ## And then get the full dimensional polytope
-#get_fd_hp = low_hp.full_dimensiolal_polytope()
-#A_fd = get_fd_hp[0].A
-#b_fd = get_fd_hp[0].b
-#N = get_fd_hp[1]
-#N_shift = get_fd_hp[2]
+get_fd_hp = low_hp.full_dimensiolal_polytope()
+A_fd = get_fd_hp[0].A
+b_fd = get_fd_hp[0].b
+N = get_fd_hp[1]
+N_shift = get_fd_hp[2]
 
 #print("\n\n *** This is the full dimensional polytope ***")
 #print(A_fd)
@@ -71,9 +64,6 @@ print("Max ball was found:")
 print(max_ball_center_point)
 print(max_ball_radius)
 
-
-
-sys.exit(0)
 
 
 ### Now we can use the full dimensional polytope; but before sampling on it, we need to round it
